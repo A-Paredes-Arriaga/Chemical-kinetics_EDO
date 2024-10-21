@@ -1,0 +1,32 @@
+@author: Paredes-Arriaga, Alejandro 1, 2; et. al.
+email: alejandro.paredes@correo.nucleares.unam.mx
+1 Instituto de Ciencias Nucleares, Universidad Nacional Autónoma de México, Circuito Exterior s/n, Ciudad Universitaria, Coyoacán, CDMX, México 
+2 Posgrado en Ciencias de la Tierra, Universidad Nacional Autónoma de México, Circuito Exterior s/n, Ciudad Universitaria, Coyoacán, CDMX, México
+Created on 21/10/2024
+
+General algorithm:
+
+In this note we present the general algorithm for solving the system of coupled
+ differential equations that describe the behavior of the molar concentration of 
+a molecule in aqueous solution under gamma radiation and an example with the system
+ of formic acid.
+Numerical methods are required to obtain a solution to equations 1 and 2.
+We present the general structure of the algorithm is presented in the following:
+1.	We use the numpy, scipy and matplotlib libraries.
+2.	A function f(t,y) is defined. Within this function we have defined the external 
+source term (equation 2) variables, the rate constants and the chemical reaction path 
+of each chemical species.
+3.	The list (return[]) is used to call all the variables that represent the each 
+chemical species and their molar concentration changes (equation 1).
+4.	An array (or vector) is defined with the initial molar concentration of each variable
+ within the list return[]. For practical purposes it is defined as y0 = np.array([]).
+5.	Another array is defined with the integration interval {h_span = np.array([0, n])}; 
+and the linear space of the system, which that represents the time advance in the system:  
+h = np.linspace(h_span[0], h_span[1],n).
+6.	A solver for computing the ODEs system is defined from the solve_ivp library. This 
+solver requires the following inputs: the function, the integration interval, 
+the initial conditions, integration method, and the number of steps in the solution.
+solve = solve_ivp(f, h_span, y0, method='BDF', h_eval=times)
+7.	Next to, the computed solution for each chemical species can be called. 
+From a chemical point of view, this means that it is possible to obtain numerical
+ information about the molar concentration of each chemical species in the system. 
