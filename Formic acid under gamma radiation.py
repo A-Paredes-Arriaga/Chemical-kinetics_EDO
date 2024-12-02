@@ -17,7 +17,7 @@ import matplotlib.pyplot as plt
 def f(t,y):
     # External source term (f_i)
        # Variables in source term
-    idgy = 0.90             # Dose intensity [Gy/m]
+    idgy = 0.90             # Dose intensity [Gy/min]
     Id = idgy*6000          # Dose intensity (rad/h) 
     MH2O = 18.02            # Molecular mass of water
     nA = 6.022*(10**23)     # Avogadro's number
@@ -97,19 +97,3 @@ Q = 80    # equivalence of step (h) to Gy
 plt.xticks([0,500*Q, 1000*Q, 1500*Q, 2000*Q],
            [0, 500, 1000, 1500, 2000])
 plt.grid()
-"""
- To calculate Q:
-     P is the equivalence in seconds of each integration step (h).
-         At a dose of 0.90 [Gy/min], the system needs 2222.22 minutes
-         or 133,333.33 seconds under gamma irradiation 
-         to accumulate the dose of 2000 [Gy]
-         We use 160,000 steps to simulate this dose
-         => 133,333.33 [seg] = 160,000 h 
-         => Each h = 1.2 [s] = P
-     Q is the number of integration time steps needed to 
-     simulate n Grays of the irradiation process
-         Coverting the dose intensity from [Gy/min] to [Gy/s]
-         => 0.90 [Gy/min] * 0.0166667 [min/s] = 0.015 [Gy/s]
-         The equivalence of P to Gy give the dose intensity
-         => 1.2 [s] / 0.015 [Gy/s] = 80 [Gy] = Q
-        """
