@@ -7,7 +7,7 @@ email: alejandro.paredes@correo.nucleares.unam.mx
 This code solves the ODE system describing the reaction mechanism 
 of formic acid at pH 1.5 under gamma irradiation.
 For Python version 3.9
-You need to have installed the scipy, nunpy and matplotlib libraries.
+You need to have installed the SciPy, NumPy and matplotlib libraries.
 Copy the code and run it in any Python interpreter.
 """
 import numpy as np
