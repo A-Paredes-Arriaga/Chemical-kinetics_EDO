@@ -1,6 +1,5 @@
 # Chemical-kinetics_EDO
 
-[![DOI](https://zenodo.org/badge/876372100.svg)](https://doi.org/10.5281/zenodo.13966973)
 
 @author: Paredes-Arriaga, Alejandro 1, 2; et. al.
 email: alejandro.paredes@correo.nucleares.unam.mx
